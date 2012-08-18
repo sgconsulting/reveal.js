@@ -1,315 +1,609 @@
 <!doctype html>  
 <html lang="en">
 	
-	<head>
-		<meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
 		
-		<title>reveal.js - The HTML Presentation Framework</title>
+    <title>The GIT version control system</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
-
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-		
-		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-		
-		<link rel="stylesheet" href="css/main.css">
-		<link rel="stylesheet" href="css/theme/default.css">
-
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
-
-		<script>
-			// If the query includes 'print-pdf' we'll use the PDF print sheet
-			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-		</script>
-
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
-	
-	<body>
-		
-		<div class="reveal">
-
-			<!-- Used to fade in a background when a specific slide state is reached -->
-			<div class="state-background"></div>
-			
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h1>Reveal.js</h1>
-					<h3>HTML Presentations Made Easy</h3>
-				</section>
-				
-				<section>
-					<h2>Heads Up</h2>
-					<p>
-						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with 
-						support for CSS 3D transforms to see it in its full glory.
-					</p>
-					<p>
-						<i><small>- <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small></i>
-					</p>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you run the speaker notes server.
-					</aside>
-				</section>
-				
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>
-							Slides can be nested inside of other slides,
-							try pressing <a href="#/2/1">down</a>.
-						</p>
-						<a href="#/2/1" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Press down or up to navigate.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>Cornify</p>
-						<a class="test" href="http://cornify.com">
-							<img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 3</h2>
-						<p>That's it, time to go back up.</p>
-						<a href="#/2" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
-
-				<section>
-					<h2>Holistic Overview</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview!
-					</p>
-				</section>
-
-				<section>
-					<h2>Works in Mobile Safari</h2>
-					<p>
-						Try it out! You can swipe through the slides pinch your way to the overview.
-					</p>
-				</section>
-
-				<section>
-					<h2>Marvelous Unordered List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
-				
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
-
-				<section data-markdown>
-					## Markdown support
-					
-					For those of you who like that sort of thing. Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-
-					<pre><code contenteditable style="margin-top: 20px;">&lt;section data-markdown&gt;
-  ## Markdown support
-
-  For those of you who like that sort of thing. 
-  Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-&lt;/section&gt;
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like:
-					</p>
-					<ul>
-						<li><a href="http://lab.hakim.se/reveal-js/?transition=cube">Cube</a></li>
-						<li><a href="http://lab.hakim.se/reveal-js/?transition=page">Page</a></li>
-						<li><a href="http://lab.hakim.se/reveal-js/?transition=concave">Concave</a></li>
-						<li><a href="http://lab.hakim.se/reveal-js/?transition=linear">Linear</a></li>
-					</ul>
-				</section>
-
-				<section>
-					<section data-state="alert">
-						<h2>Global State</h2>
-						<p>
-							Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-							will be added as a class to the document element when the slide is open. This lets you
-							apply broader style changes, like switching the background.
-						</p>
-						<a href="#/7/1" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-state="blackout">
-						<h2>"blackout"</h2>
-						<a href="#/7/2" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-state="soothe">
-						<h2>"soothe"</h2>
-						<a href="#/7/0" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
-
-				<section data-state="customevent">
-					<h2>Custom Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code contenteditable style="font-size: 18px; margin-top: 20px;">Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						The nice thing about standards is that there are so many to choose from</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						For years there has been a theory that millions of monkeys typing at random on millions of typewriters would 
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.
-					</blockquote>
-				</section>
-				
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
     
-    var nodes = document.querySelectorAll( selector );
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/theme/default.css">
+    
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
+    <script>
+      // If the query includes 'print-pdf' we'll use the PDF print sheet
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
 
-      if( !node.className ) ) {
-        node.className += ' roll';
-      }
-    };
-  }
-}
-					</code></pre>
-					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-				
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
+    <!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+	
+  <body>
+		
+    <div class="reveal">
 
-				<section>
-					<h2>Fragmented Views</h2>
-					<p>Hit the next arrow...</p>
-					<p class="fragment">... to step through ...</p>
-					<ol>
-						<li class="fragment"><code>any type</code></li>
-						<li class="fragment"><em>of view</em></li>
-						<li class="fragment"><strong>fragments</strong></li>
-					</ol>
-				</section>
-				
-				<section>
-					<h2>Spectacular image!</h2>
-					<a class="image" href="http://hakim.se/experiments/html5/breakdom/" target="_blank">
-						<img width="320" height="412" src="https://s3.amazonaws.com/hakim-static/reveal-js/breakdom.png" alt="BreakDOM game screenshot">
-					</a>
-				</section>
-				
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
-					<iframe id="slideshare" src="http://www.slideshare.net/slideshow/embed_code/13872948" width="455" height="356" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
-					<script>
-						document.getElementById('slideshare').attributeName = 'allowfullscreen';
-					</script>
-				</section>
-				
-				<section>
-					<h2>Stellar Links</h2>
-					<ul>
-						<li><a href="https://github.com/hakimel/reveal.js">Source code on github</a></li>
-						<li><a href="http://hakim.se/projects/reveal-js">Read more on my site</a></li>
-						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
-					</ul>
-				</section>
-				
-				<section>
-					<h1>THE END</h1>
-					<h3>BY Hakim El Hattab / hakim.se</h3>
-				</section>
-			</div>
-
-			<!-- The navigational controls UI -->
-			<aside class="controls">
-				<a class="left" href="#">&#x25C4;</a>
-				<a class="right" href="#">&#x25BA;</a>
-				<a class="up" href="#">&#x25B2;</a>
-				<a class="down" href="#">&#x25BC;</a>
-			</aside>
-
-			<!-- Presentation progress bar -->
-			<div class="progress"><span></span></div>
+      <!-- Used to fade in a background when a specific slide state is reached -->
+      <div class="state-background"></div>
 			
-		</div>
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+	<section>
+	  <h2>GIT intro</h2>
+	  <p style="margin-top: 20px;">
+	    by Tobbe &lt;etnt@redhoterlang.org&gt;
+	  </p>
+	</section>
 
-		<script>
+	<section>
+	  <section>
+	     <p>
+	       Use the arrows as indicated in the bottom right corner
+	       to navigate...
+	     </p>
+          </section>
+          <section>
+	    <p>...sometimes you can move downwards for additional notes!</p>
+          </section>
+        </section>
+
+	<section>
+	  <h3>Create a Git repo</h3>
+	  <pre><code style="margin-top: 20px;">
+$ mkdir hello
+$ cd hello
+$ git init
+	  </code></pre>
+	  <h3 class="fragment">The actual repo exist in the .git dir</h3>
+	  <pre class="fragment"><code style="margin-top: 20px;">
+$ ls -a
+$ .git
+	  </code></pre>
+	</section>
+
+	<section>
+	  <h3>Add a file to be version controlled</h3>
+	  <pre><code style="margin-top: 20px;">
+$ echo "Hello" > README
+$ git add README
+$ git commit -am "Adding README"
+	  </code></pre>
+	    <p class="fragment" style="margin-top:1em;font-size:smaller">Use the <em>-m</em> switch to specify a commit message!</p>
+	    <p class="fragment" style="margin-top:1em;font-size:smaller">The <em>-a</em> switch will be explained in slide 23...</p>
+        </section>
+
+        <section>
+	  <h3>Edit some more...</h3>
+	  <pre><code>
+$ echo "World" >> README
+          </pre></code>
+	  <h3 class="fragment">...check what has changed...</h3>
+	  <pre class="fragment"><code>
+$ git diff
+diff --git a/README b/README
+index e965047..f9264f7 100644
+--- a/README
++++ b/README
+@@ -1 +1,2 @@
+ Hello
++World
+          </pre></code>
+	  <h3 class="fragment">...and commit it!</h3>
+	  <pre class="fragment"><code>
+$ git commit -am "Modified README"
+          </pre></code>
+        </section>
+
+	<section>
+          <section>
+	    <h3>Study our history</h3>
+	    <pre><code>
+$ git log
+commit b0b9e95d72c4ba6cae83e5e89050718c4a505037
+Author: Torbjorn Tornkvist <tobbe@tail-f.com>
+Date:   Thu Jun 28 10:17:26 2012 +0200
+
+    Modified README
+
+commit 73aa18e9ccc40c902bc37ff572f8495b6069ebaf
+Author: Torbjorn Tornkvist <tobbe@tail-f.com>
+Date:   Thu Jun 28 10:12:29 2012 +0200
+
+    Adding README
+	    </pre></code>
+          </section>
+
+	  <section>
+	    <h3>A variant of the log output</h3>
+	    <pre><code>
+$ git log --oneline
+b0b9e95 Modified README
+73aa18e Adding README
+	    </pre></code>
+	  </section>
+
+	  <section>
+	    <h3>Yet another variant</h3>
+	    <pre><code>
+ $ git log <em style="font-size:40%;">--graph --pretty=format:'%h - %d %s %cr &lt;%an&gt;' --abbrev-commit --date=relative</em>
+<span style="font-size:60%">
+* b0b9e95 -  (HEAD, master) Modified README 9 minutes ago &lt;Torbjorn Tornkvist&gt;
+* 73aa18e -  Adding README 14 minutes ago &lt;Torbjorn Tornkvist&gt;
+</span>
+	    </pre></code>
+	  </section>
+	</section>
+
+	<section>
+	  <h3>List existing branches</h3>
+	  <pre><code>
+$ git branch
+* master
+	  </pre></code>
+	  <p class="fragment">The '*' indicates 'current branch'</p>
+	</section>
+
+	<section>
+	  <h3>Create a new branch, named 'dev'</h3>
+	  <pre><code>
+$ git branch dev
+$ git branch
+  dev
+* master
+	  </pre></code>
+	</section>
+
+	<section>
+	  <h3>Make 'dev' the current branch</h3>
+	  <pre><code>
+$ git checkout dev
+$ git branch
+* dev
+  master
+	  </pre></code>
+	  <p class="fragment">i.e <em>checkout the 'dev' branch</em></p>
+	</section>
+
+	<section>
+	  <h3>Create <b>and</b> checkout a new branch</h3>
+	  <pre><code>
+$ git checkout -b bugfix
+$ git branch
+* bugfix
+  dev
+  master
+	  </pre></code>
+	</section>
+
+<section>
+	<section>
+	  <h3>Work in the 'bugfix' branch...</h3>
+	  <pre><code>
+$ echo "Blaha" >> README
+$ git commit -am "Work in branch"
+	  </pre></code>
+	  <h3 class="fragment">...and merge it to 'master'</h3>
+	  <pre class="fragment"><code>
+$ git checkout master
+$ git merge --no-ff bugfix   # ignore the switch for now...
+	  </pre></code>
+	</section>
+
+	<section>
+	  <h3>Look at the commit graph</h3>
+	  <pre><code>
+<div style="font-size:70%">
+$ git log <em style="font-size:70%">--graph --pretty=format:'%h - %d %s %cr;' --abbrev-commit --date=relative</em>
+*   5a84ac8 -  (HEAD, master) Merge branch 'bugfix' 3 minutes ago
+|\  
+| * f8d890e -  (bugfix) Work in branch 3 minutes ago
+|/  
+* b0b9e95 -  (dev) Modified README 28 minutes ago
+* 73aa18e -  Adding README 33 minutes ago
+</div>
+	  </pre></code>
+	</section>
+</section>
+
+	<section>
+	  <h3>That's it folks!</h3>
+	  <p class="fragment" style="margin-top:2em;">
+	    You have now seen the basic workflow, which isn't
+	    that different, compared to other VCS you've tried.
+	  </p>
+	  <p class="fragment" style="margin-top:2em;">
+	    Now let's take some steps back and study
+	    the simple concept that underpins git.
+	  </p>
+	</section>
+
+	<section>
+	  <h3>3 type of objects in a repository:</h3>
+	  <ul>
+	    <li class="fragment">blob</li>
+	    <li class="fragment">tree</li>
+	    <li class="fragment">commit</li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>The Blob</h3>
+	  <pre><code>
+$ mkdir sample 
+$ cd sample
+$ echo 'Hello, world!' > greeting
+$ git hash-object greeting
+af5626b4a114abcb82d63db7c8082c3c4756e51b
+	  </pre></code>
+	  <p class="fragment" style="margin-top:2em;font-size:smaller">
+	    The blob (i.e the file content) is stored in a file<br> 
+	    with the name made up of the hash of the file content.
+	  </p>
+	  <p class="fragment" style="margin-top:2em;font-size:smaller">
+	    Also, notice how we are using the <em>plumbing</em> 
+	    (i.e low-level commands normally named as: xxx-yyy) 
+	    commands of git. They are used by the <em>porcelain</em>
+	    commands which the normal user only ever see...
+	  </p>
+	</section>
+
+	<section>
+	  <h3>Blobs are stored in Trees</h3>
+	  <pre><code>
+# Create a new repo and do a commit
+$ git init
+$ echo "Hello" > greeting
+$ git add greeting
+$ git commit -m "Added my greeting"
+
+# What our (last committed) Tree object contains
+$ git ls-tree HEAD
+100644 blob af5626b4a114abcb82d63db7c8082c3c4756e51b greeting
+	  </pre></code>
+	  <p class="fragment" style="margin-top:3em;font-size:smaller">
+	    <em>HEAD</em> points to the current checked-out branch
+	    (as will be explained soon...)
+	  </p>
+	</section>
+
+	<section>
+	  <h3>Trees holds Blobs and/or Trees</h3>
+	  <pre><code>
+# Enter another git repo...
+$ cd myang
+
+# Trees may hold Blobs and/or Trees
+$ git ls-tree HEAD
+100644 blob b25c15b81fae06e1c55946ac6270bfdb293870e8    .gitignore
+040000 tree 61af64c1f9713c4ff1351022cbe0ebaca6195b59    apt
+	  </pre></code>
+	</section>
+
+	<section>
+	  <h3>Back to the <em>greeting</em> example</h3>
+	  <pre><code>
+$ find .git/objects -type f | sort
+.git/objects/9f/bac661424a5e1e7fb9c1a6a516b58fc701f2f0
+.git/objects/ce/013625030ba8dba906f756967f9e9ca394464a
+.git/objects/ce/7199cdfe41e8c6fbf018bdfd8459287962bd5a
+	  </pre></code>
+	  <p style="font-size:smaller;">
+	    Look at the filenames in our git repo!
+	  </p>
+	  <p class="fragment" style="margin-top:2em;font-size:smaller">
+	    What git objects may those files hold?
+	  </p>
+	  <pre class="fragment"><code>
+$ for i in `find .git/objects -type f | sort | \
+  sed -e 's#.git/objects##g' -e 's#/##g'`; \
+  do echo $i `git cat-file -t $i`; done
+9fbac661424a5e1e7fb9c1a6a516b58fc701f2f0 tree
+ce013625030ba8dba906f756967f9e9ca394464a blob
+ce7199cdfe41e8c6fbf018bdfd8459287962bd5a commit
+	  </pre></code>
+	</section>
+
+	<section>
+	  <h3>Look into that commit object:</h3>
+	  <pre><code>
+$ git cat-file commit ce7199cdfe41e8c6fbf018bdfd8459287962bd5a
+tree 9fbac661424a5e1e7fb9c1a6a516b58fc701f2f0
+author Torbjorn Tornkvist <tobbe@tail-f.com> 1340820335 +0200
+committer Torbjorn Tornkvist <tobbe@tail-f.com> 1340820335 +0200
+
+Added my greeting
+	  </pre></code>
+	</section>
+
+	<section>
+	  <h3>Some facts:</h3>
+	  <ul>
+	    <li class="fragment">
+	      a tree object contains the hash'es of other trees and/or blobs
+	    </li>
+	    <li class="fragment">
+	      a commit contains the hash'es of a tree and parent commit object(s)
+	    </li>
+	  </ul>
+	  <h3 class="fragment" style="margin-top:2em;">An observation:</h3>
+	  <p class="fragment">
+	    Any repos containing a particular hash commit are guaranteed 
+	    to have an identical commit graph (history)!!
+	  </p>
+	</section>
+
+	<section>
+	  <h3>Branches</h3>
+	  <p>
+	     A git branch is just a name/label pointing out a specific 
+	     commit object.
+	  </p>
+	  <pre class="fragment"><code>
+$ cat .git/refs/heads/master
+5a84ac8a2101b740433bcf4b6d805b68d2543a8c
+
+$ cat .git/refs/heads/dev
+b0b9e95d72c4ba6cae83e5e89050718c4a505037
+
+# Note how the branch names relates to the commit hashes!
+$ git log <em style="font-size:smaller">--graph --pretty=format:'%h - %d %s %cr' --abbrev-commit --date=relative</em>
+*   5a84ac8 -  (HEAD, master) Merge branch 'bugfix' 2 hours ago
+|\  
+| * f8d890e -  (bugfix) Work in branch 2 hours ago
+|/  
+* b0b9e95 -  (dev) Modified README 3 hours ago
+	  </pre></code>
+	  <p class="fragment" style="font-size:smaller">
+	    Now, remember where 'master' and 'dev' points in the graph above.
+	  </p>
+	</section>
+
+	<section>
+	  <h3>Branches, an experiment</h3>
+	  <pre><code>
+$ cat .git/refs/heads/master
+5a84ac8a2101b740433bcf4b6d805b68d2543a8c
+
+$ cp .git/refs/heads/master .git/refs/heads/dev
+
+$ cat .git/refs/heads/dev
+5a84ac8a2101b740433bcf4b6d805b68d2543a8c
+	  </pre></code>
+	  <pre class="fragment"><code>
+
+# The 'dev' branch/label now points to the same commit hash
+# as the master branch/label, i.e 'branch' == 'label'
+$ git log <em style="font-size:smaller">--graph --pretty=format:'%h - %d %s %cr' --abbrev-commit --date=relative</em>
+*   5a84ac8 -  (HEAD, master, dev) Merge branch 'bugfix' 3 hours ago
+|\  
+| * f8d890e -  (bugfix) Work in branch 3 hours ago
+|/  
+* b0b9e95 -  Modified README 3 hours ago
+	  </pre></code>
+	</section>
+
+	<section>
+	  <h3>What about <em>HEAD</em> ?</h3>
+	  <pre><code>
+$ cat .git/HEAD
+ref: refs/heads/master
+	  </pre></code>
+	  <p style="margin-top:1em;font-size:smaller">
+	    <em>HEAD</em> is a pointer to the local branch you are currently on!
+	  </p>
+	</section>
+
+	<section>
+	  <h3>Git Index - the staging area</h3>
+	  <h4 class="fragment">Remember:</h4>
+	  <p  class="fragment" style="margin-top:1em;font-size:smaller">
+	    Your repo consist of a graph of commit objects.
+	  </p>
+	  <p class="fragment" style="margin-top:1em;font-size:smaller">
+	    Your 'next' commit object to be, is formed in the 
+	    staging area, called:
+	  </p>
+	  <p class="fragment" style="margin-top:1em;font-size:bigger">
+	    The Index
+	  </p>
+	</section>
+
+	<section>
+	  <h3>The function of the Index</h3>
+	  <img src="images/the-index.png">
+	  <p  class="fragment" style="margin-top:1em;font-size:smaller">
+	    Use the <em>-a</em> switch to 'bypass' the index (or rather, you'll take all stuff in the index and working dir and commit it in one big swoop).
+	  </p>
+	</section>
+
+	<section>
+	  <h3>Git is a <em>distributed</em> VCS!</h3>
+	  <p class="fragment" style="margin-top:1em;">No (built in) notion of a central repo!</p>
+	  <p class="fragment" style="margin-top:1em;">
+	    So how can I share my work with others?
+	  </p>
+	  <ul style="margin-top:1em;margin-left:20%;">
+	    <li class="fragment">Send patches via email.</li>
+	    <li class="fragment">Make you repo R/O available for cloning and fetching.</li>
+	    <li class="fragment">Agree on a 'central repo' for cloning, fetching and pushing.</li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>A <span style="color:red">remote</span> is an alias for a git URL</h3>
+	  <pre class="fragment"><code>
+# Enter a git repo!
+$ cd erlang-libvirt/
+
+# Display our remotes 
+# (origin is the 'default', as setup when cloning)
+$ git remote -v show
+origin  git://github.com/msantos/erlang-libvirt.git (fetch)
+origin  git://github.com/msantos/erlang-libvirt.git (push)
+	  </pre></code>
+	  <pre class="fragment"><code>
+# Add a new remote (alias)!
+$ git remote add tobbe git@github.com:etnt/erlang-libvirt.git
+	  </pre></code>
+	  <pre class="fragment"><code>
+$ git remote -v show
+origin  git://github.com/msantos/erlang-libvirt.git (fetch)
+origin  git://github.com/msantos/erlang-libvirt.git (push)
+tobbe   git@github.com:etnt/erlang-libvirt.git (fetch)
+tobbe   git@github.com:etnt/erlang-libvirt.git (push
+	  </pre></code>
+	</section>
+
+	<section>
+	  <p>Retrieve the content from our new remote repo!</p>
+	  <pre class="fragment"><code>
+$ git fetch tobbe
+	  </pre></code>
+	  <pre class="fragment"><code>
+# Note the remote branch/label names!
+$ git log <em style="font-size:smaller">--all --graph --pretty=format:'%h - %d %s' --abbrev-commit</em>
+<em style="font-size:smaller">
+* b80a4a9 -  (HEAD, tobbe/master, origin/master, origin/HEAD, master) Search for the qemu binary
+* c45b4f2 -  Add a target to run the tests
+....
+</em>
+	  </pre></code>
+	  <p class="fragment" style="font-size:smaller">
+	    Remote branches/labels are there for reference. 
+	    You always work in a local branch!
+	  </p>
+	  <pre class="fragment"><code>
+# Checkout and create a local branch 'foo'
+# representing the remote 'tobbe/master' branch.
+$ git checkout -b foo tobbe/master
+	  </pre></code>
+	</section>
+
+	<section>
+	  <h3>Push to a remote repo</h3>
+	  <p class="fragment" style="margin-top:1em;font-size:smaller">
+	    git push [&lt;where&gt; [&lt;localbranch&gt;[:&lt;remotebranch&gt;]]
+	  </p>
+	  <pre class="fragment"><code>	  
+# Push to default (tracked!) branch
+$ git push
+
+# ...or (as in the previous example):
+$ git push tobbe foo:master
+	  </pre></code>
+	  <pre class="fragment"><code>	  
+# Create a new(!) remote branch (label!) at the remote repo
+$ git push tobbe foo:bar
+	  </pre></code>
+	  <pre class="fragment"><code>	  
+# Remove remote branch
+# (Note that we only remove the 'label' !!)
+$ git push tobbe :bar
+	  </pre></code>
+	</section>
+
+	<section>
+	  <h3>Some final words</h3>
+	  <p class="fragment" style="margin-top:2em;font-size:smaller;">
+	    Use <em style="padding:0 10px;color:red;">git add -p</em> to
+	    add chunks (e.g parts of a changed file) to the index in order 
+	    to build up coherent commits.
+	  </p>
+	  <p class="fragment" style="margin-top:2em;font-size:smaller;">
+	    Use <em style="padding:0 10px;color:red;">git stash</em> when you want to record the current state of 
+	    the working directory and the index, but want to (quickly) go back 
+	    to a clean working directory
+	  </p>
+	  <p class="fragment" style="margin-top:2em;font-size:smaller;">
+	    Use <em style="padding:0 10px;color:red;">gitolite</em> for central repo management of users 
+	    and access rights (which also are stored as a git repo!!)
+	  </p>
+	</section>
+
+	<section>
+	  <h3>...more final words</h3>
+	  <p class="fragment" style="margin-top:2em;font-size:smaller;">
+	    Use <a href="http://www.youtube.com/embed/uacjFKHmlTg"><em style="padding:0 10px;">git rebase</em></a> to keep your commit graph nice and clean! It makes it possible to rewrite your commit graph in fantastic ways. Click on the link to see an example. <em style="font-size:smaller">(However, 'never' (well..) rewrite your commit graph if you earlier have published it for others to use)</em>
+	  </p>	  
+	  <p class="fragment" style="margin-top:2em;font-size:smaller;">
+	    Add your favorite <em style="padding:0 10px;color:red;">alias</em>
+	    to your <em>~/.gitconfig</em> file, for example:
+	  </p>
+	  <pre class="fragment"><code>	  
+  lol   = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit --date=relative
+  lola  = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit --date=relative --all
+	  </pre></code>
+	</section>
+
+	<section>
+	  <h2>THE END</h2>
+	  <h3 style="margin-top:1em;">More info</h3>
+	  <p style="margin-top:2em;font-size:smaller;">
+	    The git book: <a href="http://git-scm.com/book">http://git-scm.com/book</a>
+	  </p>
+	  <p style="margin-top:2em;font-size:smaller;">
+	    The paper:  <a href="http://www.google.com/url?sa=t&rct=j&q=git%20from%20the%20bottom%20up&source=web&cd=1&cad=rja&ved=0CEkQFjAA&url=http%3A%2F%2Fftp.newartisans.com%2Fpub%2Fgit.from.bottom.up.pdf&ei=h0QyUN_jNInU4QSu-YG4Cw&usg=AFQjCNHba4fxS9OOoDkTjCrA0VIF1H1HuQ">Git from the bottom up</a>
+	  </p>
+	  <p style="margin-top:2em;font-size:smaller;">
+	    Nice tips site: <a href="http://gitready.com/">http://gitready.com/</a>
+	  </p>
+	  <p style="margin-top:2em;font-size:smaller;">
+	    Example of a branching model: <a href="http://nvie.com/posts/a-successful-git-branching-model/">http://nvie.com/posts/a-successful-git-branching-model/</a>
+	  </p>
+	</section>
+      </div>
+
+      <!-- The navigational controls UI -->
+      <aside class="controls">
+	<a class="left" href="#">&#x25C4;</a>
+	<a class="right" href="#">&#x25BA;</a>
+	<a class="up" href="#">&#x25B2;</a>
+	<a class="down" href="#">&#x25BC;</a>
+      </aside>
+      
+      <!-- Presentation progress bar -->
+      <div class="progress"><span></span></div>
+      
+    </div>
+    
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
 			
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/linear(2d)
-
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
-					{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
-				]
-			});
-			
-		</script>
-
-	</body>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      
+      transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/linear(2d)
+      
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+      { src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+      { src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+      ]
+      });
+      
+    </script>
+    
+  </body>
 </html>
