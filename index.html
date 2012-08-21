@@ -347,7 +347,7 @@ Added my greeting
 	<section>
 	  <h3>Branches</h3>
 	  <p>
-	     A git branch is just a name/label pointing out a specific 
+	     A git branch is just a name (label) pointing out a specific 
 	     commit object.
 	  </p>
 	  <pre class="fragment"><code>
@@ -383,8 +383,9 @@ $ cat .git/refs/heads/dev
 	  </pre></code>
 	  <pre class="fragment"><code>
 
-# The 'dev' branch/label now points to the same commit hash
-# as the master branch/label, i.e 'branch' == 'label'
+# The 'dev' branch now points to the same commit hash
+# as the master branch, i.e. a 'branch' is just a 'label'
+# pointing to a particular commit object.
 $ git log <em style="font-size:smaller">--graph --pretty=format:'%h - %d %s %cr' --abbrev-commit --date=relative</em>
 *   5a84ac8 -  (HEAD, master, dev) Merge branch 'bugfix' 3 hours ago
 |\  
@@ -472,7 +473,7 @@ tobbe   git@github.com:etnt/erlang-libvirt.git (push
 $ git fetch tobbe
 	  </pre></code>
 	  <pre class="fragment"><code>
-# Note the remote branch/label names!
+# Note the remote branch names ( &lt;remote&gt;/&lt;branch&gt; )
 $ git log <em style="font-size:smaller">--all --graph --pretty=format:'%h - %d %s' --abbrev-commit</em>
 <em style="font-size:smaller">
 * b80a4a9 -  (HEAD, tobbe/master, origin/master, origin/HEAD, master) Search for the qemu binary
@@ -481,7 +482,7 @@ $ git log <em style="font-size:smaller">--all --graph --pretty=format:'%h - %d %
 </em>
 	  </pre></code>
 	  <p class="fragment" style="font-size:smaller">
-	    Remote branches/labels are there for reference. 
+	    Remote branches are there for reference. 
 	    You always work in a local branch!
 	  </p>
 	  <pre class="fragment"><code>
