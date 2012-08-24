@@ -440,12 +440,16 @@ ref: refs/heads/master
 	    <li class="fragment">Make you repo R/O available for cloning and fetching.</li>
 	    <li class="fragment">Agree on a 'central repo' for cloning, fetching and pushing.</li>
 	  </ul>
+	  <p class="fragment" style="margin-top:1em;">
+	    To <em>Clone</em> == "retrieve a <b>complete repo</b> from somewhere"
+	  </p>
 	</section>
 
 	<section>
 	  <h3>A <span style="color:red">remote</span> is an alias for a git URL</h3>
 	  <pre class="fragment"><code>
-# Enter a git repo!
+# Clone and enter a git repo!
+$ git clone git://github.com/msantos/erlang-libvirt.git
 $ cd erlang-libvirt/
 
 # Display our remotes 
