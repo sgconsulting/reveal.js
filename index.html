@@ -81,7 +81,7 @@ $ git add README
 $ git commit -am "Adding README"
 	  </code></pre>
 	    <p class="fragment" style="margin-top:1em;font-size:smaller">Use the <em>-m</em> switch to specify a commit message!</p>
-	    <p class="fragment" style="margin-top:1em;font-size:smaller">The <em>-a</em> switch will be explained in slide 23...</p>
+	    <p class="fragment" style="margin-top:1em;font-size:smaller">The <em>-a</em> switch will be explained later...</p>
         </section>
 
         <section>
@@ -223,187 +223,6 @@ $ git log <em style="font-size:70%">--graph --pretty=format:'%h - %d %s %cr;' --
 	    You have now seen the basic workflow, which isn't
 	    that different, compared to other VCS you've tried.
 	  </p>
-	  <p class="fragment" style="margin-top:2em;">
-	    Now let's take some steps back and study
-	    the simple concept that underpins git.
-	  </p>
-	</section>
-
-	<section>
-	  <h3>3 type of objects in a repository:</h3>
-	  <ul>
-	    <li class="fragment">blob</li>
-	    <li class="fragment">tree</li>
-	    <li class="fragment">commit</li>
-	  </ul>
-	</section>
-
-	<section>
-	  <h3>The Blob</h3>
-	  <pre><code>
-$ mkdir sample 
-$ cd sample
-$ echo 'Hello, world!' > greeting
-$ git hash-object greeting
-af5626b4a114abcb82d63db7c8082c3c4756e51b
-	  </pre></code>
-	  <p class="fragment" style="margin-top:2em;font-size:smaller">
-	    The blob (i.e the file content) is stored in a file<br> 
-	    with the name made up of the hash of the file content.
-	  </p>
-	  <p class="fragment" style="margin-top:2em;font-size:smaller">
-	    Also, notice how we are using the <em>plumbing</em> 
-	    (i.e low-level commands normally named as: xxx-yyy) 
-	    commands of git. They are used by the <em>porcelain</em>
-	    commands which the normal user only ever see...
-	  </p>
-	</section>
-
-	<section>
-	  <h3>Blobs are stored in Trees</h3>
-	  <pre><code>
-# Create a new repo and do a commit
-$ git init
-$ echo "Hello" > greeting
-$ git add greeting
-$ git commit -m "Added my greeting"
-
-# What our (last committed) Tree object contains
-$ git ls-tree HEAD
-100644 blob af5626b4a114abcb82d63db7c8082c3c4756e51b greeting
-	  </pre></code>
-	  <p class="fragment" style="margin-top:3em;font-size:smaller">
-	    <em>HEAD</em> points to the current checked-out branch
-	    (as will be explained soon...)
-	  </p>
-	</section>
-
-	<section>
-	  <h3>Trees holds Blobs and/or Trees</h3>
-	  <pre><code>
-# Enter another git repo...
-$ cd myang
-
-# Trees may hold Blobs and/or Trees
-$ git ls-tree HEAD
-100644 blob b25c15b81fae06e1c55946ac6270bfdb293870e8    .gitignore
-040000 tree 61af64c1f9713c4ff1351022cbe0ebaca6195b59    apt
-	  </pre></code>
-	</section>
-
-	<section>
-	  <h3>Back to the <em>greeting</em> example</h3>
-	  <pre><code>
-$ find .git/objects -type f | sort
-.git/objects/9f/bac661424a5e1e7fb9c1a6a516b58fc701f2f0
-.git/objects/ce/013625030ba8dba906f756967f9e9ca394464a
-.git/objects/ce/7199cdfe41e8c6fbf018bdfd8459287962bd5a
-	  </pre></code>
-	  <p style="font-size:smaller;">
-	    Look at the filenames in our git repo!
-	  </p>
-	  <p class="fragment" style="margin-top:2em;font-size:smaller">
-	    What git objects may those files hold?
-	  </p>
-	  <pre class="fragment"><code>
-$ for i in `find .git/objects -type f | sort | \
-  sed -e 's#.git/objects##g' -e 's#/##g'`; \
-  do echo $i `git cat-file -t $i`; done
-9fbac661424a5e1e7fb9c1a6a516b58fc701f2f0 tree
-ce013625030ba8dba906f756967f9e9ca394464a blob
-ce7199cdfe41e8c6fbf018bdfd8459287962bd5a commit
-	  </pre></code>
-	</section>
-
-	<section>
-	  <h3>Look into that commit object:</h3>
-	  <pre><code>
-$ git cat-file commit ce7199cdfe41e8c6fbf018bdfd8459287962bd5a
-tree 9fbac661424a5e1e7fb9c1a6a516b58fc701f2f0
-author Torbjorn Tornkvist <tobbe@tail-f.com> 1340820335 +0200
-committer Torbjorn Tornkvist <tobbe@tail-f.com> 1340820335 +0200
-
-Added my greeting
-	  </pre></code>
-	</section>
-
-	<section>
-	  <h3>Some facts:</h3>
-	  <ul>
-	    <li class="fragment">
-	      a tree object contains the hash'es of other trees and/or blobs
-	    </li>
-	    <li class="fragment">
-	      a commit contains the hash'es of a tree and parent commit object(s)
-	    </li>
-	  </ul>
-	  <h3 class="fragment" style="margin-top:2em;">An observation:</h3>
-	  <p class="fragment">
-	    Any repos containing a particular hash commit are guaranteed 
-	    to have an identical commit graph (history)!!
-	  </p>
-	</section>
-
-	<section>
-	  <h3>Branches</h3>
-	  <p>
-	     A git branch is just a name (label) pointing out a specific 
-	     commit object.
-	  </p>
-	  <pre class="fragment"><code>
-$ cat .git/refs/heads/master
-5a84ac8a2101b740433bcf4b6d805b68d2543a8c
-
-$ cat .git/refs/heads/dev
-b0b9e95d72c4ba6cae83e5e89050718c4a505037
-
-# Note how the branch names relates to the commit hashes!
-$ git log <em style="font-size:smaller">--graph --pretty=format:'%h - %d %s %cr' --abbrev-commit --date=relative</em>
-*   5a84ac8 -  (HEAD, master) Merge branch 'bugfix' 2 hours ago
-|\  
-| * f8d890e -  (bugfix) Work in branch 2 hours ago
-|/  
-* b0b9e95 -  (dev) Modified README 3 hours ago
-	  </pre></code>
-	  <p class="fragment" style="font-size:smaller">
-	    Now, remember where 'master' and 'dev' points in the graph above.
-	  </p>
-	</section>
-
-	<section>
-	  <h3>Branches, an experiment</h3>
-	  <pre><code>
-$ cat .git/refs/heads/master
-5a84ac8a2101b740433bcf4b6d805b68d2543a8c
-
-$ cp .git/refs/heads/master .git/refs/heads/dev
-
-$ cat .git/refs/heads/dev
-5a84ac8a2101b740433bcf4b6d805b68d2543a8c
-	  </pre></code>
-	  <pre class="fragment"><code>
-
-# The 'dev' branch now points to the same commit hash
-# as the master branch, i.e. a 'branch' is just a 'label'
-# pointing to a particular commit object.
-$ git log <em style="font-size:smaller">--graph --pretty=format:'%h - %d %s %cr' --abbrev-commit --date=relative</em>
-*   5a84ac8 -  (HEAD, master, dev) Merge branch 'bugfix' 3 hours ago
-|\  
-| * f8d890e -  (bugfix) Work in branch 3 hours ago
-|/  
-* b0b9e95 -  Modified README 3 hours ago
-	  </pre></code>
-	</section>
-
-	<section>
-	  <h3>What about <em>HEAD</em> ?</h3>
-	  <pre><code>
-$ cat .git/HEAD
-ref: refs/heads/master
-	  </pre></code>
-	  <p style="margin-top:1em;font-size:smaller">
-	    <em>HEAD</em> is a pointer to the local branch you are currently on!
-	  </p>
 	</section>
 
 	<section>
@@ -449,39 +268,28 @@ ref: refs/heads/master
 	  <h3>A <span style="color:red">remote</span> is an alias for a git URL</h3>
 	  <pre class="fragment"><code>
 # Clone and enter a git repo!
-$ git clone git://github.com/msantos/erlang-libvirt.git
-$ cd erlang-libvirt/
+$ git clone git@git.sgconsulting.it:sgconsulting.it.git
+$ cd sgconsulting.it
 
 # Display our remotes 
 # (origin is the 'default', as setup when cloning)
 $ git remote -v show
-origin  git://github.com/msantos/erlang-libvirt.git (fetch)
-origin  git://github.com/msantos/erlang-libvirt.git (push)
-	  </pre></code>
-	  <pre class="fragment"><code>
-# Add a new remote (alias)!
-$ git remote add tobbe git@github.com:etnt/erlang-libvirt.git
-	  </pre></code>
-	  <pre class="fragment"><code>
-$ git remote -v show
-origin  git://github.com/msantos/erlang-libvirt.git (fetch)
-origin  git://github.com/msantos/erlang-libvirt.git (push)
-tobbe   git@github.com:etnt/erlang-libvirt.git (fetch)
-tobbe   git@github.com:etnt/erlang-libvirt.git (push
+origin  git@git.sgconsulting.it:sgconsulting.it (fetch)
+origin  git@git.sgconsulting.it:sgconsulting.it (push)
 	  </pre></code>
 	</section>
 
 	<section>
-	  <p>Retrieve the content from our new remote repo!</p>
+	  <p>Retrieve the content from our remote repo!</p>
 	  <pre class="fragment"><code>
-$ git fetch tobbe
+$ git pull origin master
 	  </pre></code>
 	  <pre class="fragment"><code>
 # Note the remote branch names ( &lt;remote&gt;/&lt;branch&gt; )
 $ git log <em style="font-size:smaller">--all --graph --pretty=format:'%h - %d %s' --abbrev-commit</em>
 <em style="font-size:smaller">
-* b80a4a9 -  (HEAD, tobbe/master, origin/master, origin/HEAD, master) Search for the qemu binary
-* c45b4f2 -  Add a target to run the tests
+38f55c5 -  (HEAD, master) aggiornato mappa contatti
+0d1ef39 -  (origin/master, origin/HEAD) aggiornati i teamviewer
 ....
 </em>
 	  </pre></code>
@@ -489,11 +297,6 @@ $ git log <em style="font-size:smaller">--all --graph --pretty=format:'%h - %d %
 	    Remote branches are there for reference. 
 	    You always work in a local branch!
 	  </p>
-	  <pre class="fragment"><code>
-# Checkout and create a local branch 'foo'
-# representing the remote 'tobbe/master' branch.
-$ git checkout -b foo tobbe/master
-	  </pre></code>
 	</section>
 
 	<section>
@@ -505,20 +308,8 @@ $ git checkout -b foo tobbe/master
 # Push to default (tracked!) branch
 $ git push
 
-# ...or (as in the previous example):
-$ git push tobbe foo:master
-	  </pre></code>
-	  <pre class="fragment"><code>	  
-# Create a new(!) remote branch (label!) at the remote repo
-$ git push tobbe foo:bar
-	  </pre></code>
-	  <pre class="fragment"><code>	  
-# Remove remote branch
-# (Note that we only remove the 'label' !!)
-$ git push tobbe :bar
-
-# Equivalent with the above:
-$ git push --delete tobbe bar
+# ...or:
+$ git push origin master
 	  </pre></code>
 	</section>
 
@@ -534,10 +325,6 @@ $ git push --delete tobbe bar
 	    the working directory and the index, but want to (quickly) go back 
 	    to a clean working directory
 	  </p>
-	  <p class="fragment" style="margin-top:2em;font-size:smaller;">
-	    Use <em style="padding:0 10px;color:red;">gitolite</em> for central repo management of users 
-	    and access rights (which also are stored as a git repo!!)
-	  </p>
 	</section>
 
 	<section>
@@ -550,6 +337,9 @@ $ git push --delete tobbe bar
 	    to your <em>~/.gitconfig</em> file, for example:
 	  </p>
 	  <pre class="fragment"><code>	  
+  changes = diff --name-status -r
+  unstage = reset HEAD --
+  last = log -1 HEAD
   lol   = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit --date=relative
   lola  = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit --date=relative --all
 	  </pre></code>
